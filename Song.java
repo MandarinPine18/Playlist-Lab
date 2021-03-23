@@ -20,4 +20,12 @@ public class Song {
 	public int getDuration() {
 		return duration;
 	}
+
+	public int getMinutes() {
+		return duration / 60;
+	}
+
+	public int getSeconds() {
+		return duration % 60;
+	}
 }
