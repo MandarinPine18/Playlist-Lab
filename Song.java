@@ -3,6 +3,12 @@ public class Song {
 	private String artist;
 	private int duration; //in seconds
 
+	public Song(String name, String artist, int min, int sec) {
+		this.name = name;
+		this.artist = artist;
+		this.duration = min*60 + sec;
+	}
+
 	public Song(String name, String artist, int duration) {
 		this.name = name;
 		this.artist = artist;
