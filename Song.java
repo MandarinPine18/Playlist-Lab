@@ -34,4 +34,8 @@ public class Song {
 	public int getSeconds() {
 		return duration % 60;
 	}
+
+	public String toString() {
+		return name + " by " + artist + " (" + duration + ")";
+	}
 }

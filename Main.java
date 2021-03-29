@@ -11,5 +11,6 @@ class Main {
 		playList.playList = songs;
 
 		playList.sortAlpha();
+		System.out.println(playList);
 	}
 }

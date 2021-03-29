@@ -19,4 +19,12 @@ public class PlayList {
 		}
 		return playList;
 	}
+
+	public String toString() {
+		String built = "";
+		for (Song song: playList) {
+			built += song + "\n";
+		}
+		return built;
+	}
 }
