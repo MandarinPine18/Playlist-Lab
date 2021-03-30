@@ -1,5 +1,5 @@
 public class PlayList {
-	public Song[] playList;
+	private Song[] playList;
 
 	public PlayList(int num) {
 		playList = new Song[num];
@@ -57,6 +57,9 @@ public class PlayList {
 		for(int orig = 0; orig < playList.length; orig++) {
 			if(orig == index) {
 				orig++;
+			}
+			if(orig >= playList.length) {   // edge case fix
+				break;
 			}
 			temp[newI] = playList[orig];
 			newI++;
