@@ -37,11 +37,33 @@ public class PlayList {
 		}
 	}
 
+	public Song remove(int index) {
+		if(index >= playList.length || index < 0) {
+			return null;
+		}
+
+		Song out = playList[index];
+		Song[] temp = new Song[playList.length-1];
+
+		int newI = 0;
+		for(int orig = 0; orig < playList.length; orig++) {
+			if(orig == index) {
+				orig++;
+			}
+			temp[newI] = playList[orig];
+			newI++;
+		}
+
+		playList = temp;
+
+		return out;
+	}
+
 	public String toString() {
 		String built = "";
 		for (Song song: playList) {
 			built += song + "\n";
 		}
-		return built;
+		return built.substring(0, built.length()-1); // chopping off that extra \n
 	}
 }
