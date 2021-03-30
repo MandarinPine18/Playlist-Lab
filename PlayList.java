@@ -6,7 +6,15 @@ public class PlayList {
 	}
 
 	public Song getSong(int index) {
-		return playList[index];
+		try {
+			return playList[index];
+		} catch (IndexOutOfBoundsException e) {
+			throw new IllegalArgumentException();
+		}
+	}
+
+	public void setSong(int index, Song song) {
+		playList[index] = song;
 	}
 
 	public void sortAlpha() {
@@ -64,6 +72,9 @@ public class PlayList {
 		for (Song song: playList) {
 			built += song + "\n";
 		}
-		return built.substring(0, built.length()-1); // chopping off that extra \n
+		if(built.length() > 0) {
+			built = built.substring(0, built.length()-1); // chopping off that extra \n
+		}
+		return built;
 	}
 }
