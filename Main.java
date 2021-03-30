@@ -16,23 +16,25 @@ class Main {
 
 		System.out.println("Create your own playlist! Type \"init\" to begin ");
 		while(true) {
-			String cmd = input("> ");
+			String cmd = input("> ") + "                 "; // the extra spaces are a quick fix to avoid index issues in some of the if-statements
 			if(cmd.startsWith("init")) {
-				;
+				; //TODO add input system
 			} else if (cmd.startsWith("remove")) {
-				;
+				playList.remove(Integer.parseInt(cmd.trim().substring(7)));
 			} else if (cmd.startsWith("sort")) {
 				if (cmd.substring(5).startsWith("-d")) {
 					playList.sortDuration();
 				} else if (cmd.substring(5).startsWith("-a")) {
 					playList.sortAlpha();
 				} else {
-					; //TODO add a help message for sort
+					System.out.println("-d\tSort by duration\n-a\tSort alphabetically");
 				}
 			} else if (cmd.startsWith("get")) {
 				System.out.println(playList.getSong(Integer.parseInt(cmd.substring(4))));
 			} else if (cmd.startsWith("print")) {
 				System.out.println(playList);
+			} else if (cmd.startsWith("exit")) {
+				System.exit(0);
 			}
 		}
 	}
