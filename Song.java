@@ -36,6 +36,6 @@ public class Song {
 	}
 
 	public String toString() {
-		return name + " by " + artist + " (" + duration + ")";
+		return name + " by " + artist + " (" + getMinutes() + ":" + getSeconds() + ")";
 	}
 }

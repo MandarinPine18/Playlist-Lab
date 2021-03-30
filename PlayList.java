@@ -5,6 +5,10 @@ public class PlayList {
 		playList = new Song[num];
 	}
 
+	public Song getSong(int index) {
+		return playList[index];
+	}
+
 	public void sortAlpha() {
 		for(int i = 0; i < playList.length-1; i++) {
 			int first = i;
