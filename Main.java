@@ -11,7 +11,7 @@ class Main {
 		System.out.println("~~BEGIN DEMO~~");
 		System.out.println("Before sorting:");
 		System.out.println(playList);
-		
+
 		System.out.println("\nSorted by duration and printed:");
 		playList.sortDuration();
 		System.out.println(playList);
@@ -23,13 +23,13 @@ class Main {
 		System.out.println("~~END DEMO~~\n");
 
 		help();
-		while(true) {
+		while (true) {
 			String cmd = input("> ") + "                 "; // the extra spaces are a quick fix to avoid index issues in some of the if-statements
-			if(cmd.startsWith("init")) {
+			if (cmd.startsWith("init")) {
 				playList = makePlaylist();
 			} else if (cmd.startsWith("remove")) {
 				try {
-				playList.removeSong(Integer.parseInt(cmd.trim().substring(7))-1);
+					playList.removeSong(Integer.parseInt(cmd.trim().substring(7)) - 1);
 				} catch (IllegalArgumentException e) {
 					System.out.println("Please follow the remove command with a space and a non-negative, non-zero integer that is no greater than " + playList.getLength() + ".");
 				}
@@ -43,15 +43,15 @@ class Main {
 				}
 			} else if (cmd.startsWith("get")) {
 				try {
-					System.out.println(playList.getSong(Integer.parseInt(cmd.trim().substring(4))-1));
+					System.out.println(playList.getSong(Integer.parseInt(cmd.trim().substring(4)) - 1));
 				} catch (IllegalArgumentException e) {
 					System.out.println("Please follow the get command with a space and a non-negative, non-zero integer that is not greater than " + playList.getLength() + ".");
 				}
 			} else if (cmd.startsWith("set")) {
 				int index;
-				while(true) {
+				while (true) {
 					try {
-						index = Integer.parseInt(cmd.trim().substring(4))-1;
+						index = Integer.parseInt(cmd.trim().substring(4)) - 1;
 						break;
 					} catch (IllegalArgumentException e) {
 						System.out.println("Please follow the set command with a space and a non-negative, non-zero integer that is not greater than " + playList.getLength() + ".");
@@ -85,7 +85,7 @@ class Main {
 		while (true) {
 			try {
 				num = Integer.parseInt(input("How many songs would you like in your playlist?\n"));
-				if(num < 0) {
+				if (num < 0) {
 					throw new NumberFormatException();
 				}
 				break;
@@ -96,7 +96,7 @@ class Main {
 
 		PlayList tempList = new PlayList(num);
 
-		for(int i = 0; i < num; i++) {
+		for (int i = 0; i < num; i++) {
 
 			tempList.replaceSong(i, requestSong(i));
 
@@ -108,8 +108,8 @@ class Main {
 	}
 
 	public static Song requestSong(int i) {
-		String name = input("Enter the name of song " + (i+1) + ": ");
-		String artist = input("Enter the artist of song " + (i+1) + ": ");
+		String name = input("Enter the name of song " + (i + 1) + ": ");
+		String artist = input("Enter the artist of song " + (i + 1) + ": ");
 		int min;
 		int sec;
 
