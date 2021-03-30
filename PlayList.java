@@ -69,8 +69,8 @@ public class PlayList {
 
 	public String toString() {
 		String built = "";
-		for (Song song: playList) {
-			built += song + "\n";
+		for (int i = 0; i < playList.length; i++) {
+			built += (i+1) + ". " + playList[i] + "\n";
 		}
 		if(built.length() > 0) {
 			built = built.substring(0, built.length()-1); // chopping off that extra \n
