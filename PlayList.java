@@ -18,10 +18,10 @@ public class PlayList {
 	}
 
 	public void sortAlpha() {
-		for(int i = 0; i < playList.length-1; i++) {
+		for (int i = 0; i < playList.length - 1; i++) {
 			int first = i;
-			for(int j = i+1; j < playList.length; j++) {
-				if(playList[j].getSongName().compareTo(playList[first].getSongName()) < 0) {
+			for (int j = i + 1; j < playList.length; j++) {
+				if (playList[j].getSongName().compareTo(playList[first].getSongName()) < 0) {
 					first = j;
 				}
 			}
@@ -32,10 +32,10 @@ public class PlayList {
 	}
 
 	public void sortDuration() {
-		for(int i = 0; i < playList.length-1; i++) {
+		for (int i = 0; i < playList.length - 1; i++) {
 			int min = i;
-			for(int j = i+1; j < playList.length; j++) {
-				if(playList[j].getDuration() < playList[min].getDuration()) {
+			for (int j = i + 1; j < playList.length; j++) {
+				if (playList[j].getDuration() < playList[min].getDuration()) {
 					min = j;
 				}
 			}
@@ -46,19 +46,19 @@ public class PlayList {
 	}
 
 	public Song remove(int index) {
-		if(index >= playList.length || index < 0) {
+		if (index >= playList.length || index < 0) {
 			throw new IllegalArgumentException();
 		}
 
 		Song out = playList[index];
-		Song[] temp = new Song[playList.length-1];
+		Song[] temp = new Song[playList.length - 1];
 
 		int newI = 0;
-		for(int orig = 0; orig < playList.length; orig++) {
-			if(orig == index) {
+		for (int orig = 0; orig < playList.length; orig++) {
+			if (orig == index) {
 				orig++;
 			}
-			if(orig >= playList.length) {   // edge case fix
+			if (orig >= playList.length) {   // edge case fix
 				break;
 			}
 			temp[newI] = playList[orig];
@@ -73,10 +73,10 @@ public class PlayList {
 	public String toString() {
 		String built = "";
 		for (int i = 0; i < playList.length; i++) {
-			built += (i+1) + ". " + playList[i] + "\n";
+			built += (i + 1) + ". " + playList[i] + "\n";
 		}
-		if(built.length() > 0) {
-			built = built.substring(0, built.length()-1); // chopping off that extra \n
+		if (built.length() > 0) {
+			built = built.substring(0, built.length() - 1); // chopping off that extra \n
 		}
 		return built;
 	}
