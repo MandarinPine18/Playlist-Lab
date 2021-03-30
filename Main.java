@@ -31,7 +31,11 @@ class Main {
 			if(cmd.startsWith("init")) {
 				playList = makePlaylist();
 			} else if (cmd.startsWith("remove")) {
-				playList.remove(Integer.parseInt(cmd.trim().substring(7))-1); //TODO add removal try-catch
+				try {
+				playList.remove(Integer.parseInt(cmd.trim().substring(7))-1);
+				} catch (IllegalArgumentException e) {
+					System.out.println("Please follow the remove command with a space and a non-negative integer that is a valid position to remove.");
+				}
 			} else if (cmd.startsWith("sort")) {
 				if (cmd.substring(5).startsWith("-d")) {
 					playList.sortDuration();

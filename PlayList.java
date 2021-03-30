@@ -47,7 +47,7 @@ public class PlayList {
 
 	public Song remove(int index) {
 		if(index >= playList.length || index < 0) {
-			return null;
+			throw new IllegalArgumentException();
 		}
 
 		Song out = playList[index];
