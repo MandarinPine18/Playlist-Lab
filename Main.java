@@ -67,7 +67,8 @@ class Main {
 				"sort\t-will sort the playlist (follow with space and either \"-a\" (for alphabetical) or \"-d\" (for duration-based)\n" +
 				"get\t\t-will get an element from the playlist, follow with space and the index to retrieve (starts counting at 1)\n" +
 				"remove\t-will remove an element from the playlist, follow with space and the index to remove (starts counting at 1)\n" +
-				"print\t-will print all elements of the playlist (will print positions, which start at 1 and are one higher than indices)\n");
+				"print\t-will print all elements of the playlist (will print positions, which start at 1 and are one higher than indices)\n" +
+				"help\t-will print all of these commands as they are here");
 	}
 
 	public static PlayList makePlaylist() {
@@ -96,9 +97,12 @@ class Main {
 				try {
 					min = Integer.parseInt(input("Enter the minutes of song " + (i + 1) + ": "));
 					sec = Integer.parseInt(input("Enter the seconds of song " + (i + 1) + ": "));
+					if (sec >= 60 || sec < 0 || min < 0) {
+						throw new IllegalArgumentException();
+					}
 					break;
-				} catch (NumberFormatException e) {
-					System.out.println("Please enter non-negative integers. Try again.");
+				} catch (IllegalArgumentException e) {
+					System.out.println("Please enter non-negative integers and make sure seconds is less than 60. Try again.");
 				}
 			}
 
