@@ -5,7 +5,7 @@ public class PlayList {
 		playList = new Song[num];
 	}
 
-	public Song[] sortAlpha() {
+	public void sortAlpha() {
 		for(int i = 0; i < playList.length-1; i++) {
 			int first = i;
 			for(int j = i+1; j < playList.length; j++) {
@@ -17,7 +17,20 @@ public class PlayList {
 			playList[i] = playList[first];
 			playList[first] = temp;
 		}
-		return playList;
+	}
+
+	public void sortDuration() {
+		for(int i = 0; i < playList.length-1; i++) {
+			int min = i;
+			for(int j = i+1; j < playList.length; j++) {
+				if(playList[j].getDuration() < playList[min].getDuration()) {
+					min = j;
+				}
+			}
+			Song temp = playList[i];
+			playList[i] = playList[min];
+			playList[min] = temp;
+		}
 	}
 
 	public String toString() {
