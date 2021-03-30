@@ -13,8 +13,12 @@ public class PlayList {
 		}
 	}
 
-	public void setSong(int index, Song song) {
+	public void replaceSong(int index, Song song) {
 		playList[index] = song;
+	}
+
+	public int getLength() {
+		return playList.length;
 	}
 
 	public void sortAlpha() {
@@ -45,7 +49,7 @@ public class PlayList {
 		}
 	}
 
-	public Song remove(int index) {
+	public Song removeSong(int index) {
 		if(index >= playList.length || index < 0) {
 			throw new IllegalArgumentException();
 		}
